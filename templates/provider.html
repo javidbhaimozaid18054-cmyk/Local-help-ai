@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}Join as a Provider | LocalHelp AI{% endblock %}
+{% block content %}
+<section class="page">
+  <h1>Join as a Service Provider</h1>
+  <p class="lead">Plumber, electrician, mechanic, cleaner or carpenter? Register to get service requests from people near you. This is a college project demo: we do not ask for a phone number or address.</p>
+
+  <form id="provForm" novalidate>
+    <div class="card">
+      <label class="f" for="name" style="margin-top:0">Your name or shop name</label>
+      <input type="text" id="name" maxlength="60" autocomplete="off">
+
+      <div class="grid2">
+        <div>
+          <label class="f" for="category">Service you provide</label>
+          <select id="category">
+            <option value="">Choose one</option>
+            <option value="plumbing">Plumbing</option>
+            <option value="electrical">Electrical</option>
+            <option value="vehicle">Vehicle repair</option>
+            <option value="electronics">Electronics / appliance</option>
+            <option value="cleaning">Cleaning</option>
+            <option value="carpentry">Carpentry</option>
+            <option value="home">Home repair (general)</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div>
+          <label class="f" for="area">Area where you work</label>
+          <input type="text" id="area" maxlength="60" placeholder="e.g. Bapunagar, Ahmedabad" autocomplete="off">
+        </div>
+      </div>
+
+      <div class="grid2">
+        <div>
+          <label class="f" for="experience">Years of experience</label>
+          <input type="number" id="experience" min="0" max="50" inputmode="numeric">
+        </div>
+        <div></div>
+      </div>
+
+      <div class="grid2">
+        <div>
+          <label class="f" for="pmin">Lowest usual charge per visit (₹)</label>
+          <input type="number" id="pmin" min="50" max="20000" inputmode="numeric">
+        </div>
+        <div>
+          <label class="f" for="pmax">Highest usual charge per visit (₹)</label>
+          <input type="number" id="pmax" min="50" max="20000" inputmode="numeric">
+        </div>
+      </div>
+
+      <label class="f" for="about">About your work (optional, max 200 letters)</label>
+      <textarea id="about" maxlength="200" style="min-height:70px"></textarea>
+
+      <label class="opt" style="margin-top:12px"><input type="checkbox" id="consent"> I agree that these details can be shown to users in this demo after review.</label>
+    </div>
+    <button class="btn full" type="submit">Register</button>
+  </form>
+
+  <p class="form-error" id="provError" role="alert" hidden></p>
+  <div class="success-msg" id="provDone" role="status" hidden>Thank you! Your details are saved. You will appear in the provider list after review.</div>
+</section>
+{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='js/provider.js') }}"></script>{% endblock %}

@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Join as a Provider | LocalHelp AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Noto+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="wrap bar">
+      <a class="logo" href="index.html" aria-label="LocalHelp AI home">
+        <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M12 22s8-6.5 8-12.5A8 8 0 0 0 4 9.5C4 15.5 12 22 12 22z" fill="currentColor"/><path d="M8.5 10l2.5 2.5L16 7.5" fill="none" stroke="#ffc300" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>LocalHelp <b>AI</b></span>
+      </a>
+      <nav class="nav" aria-label="Main">
+        <a href="index.html">Home</a>
+        <a href="provider.html">For Professionals</a>
+      </nav>
+      
+    </div>
+  </header>
+  <main class="wrap">
+
+<section class="page">
+  <h1>Join as a Service Provider</h1>
+  <p class="lead">Plumber, electrician, mechanic, cleaner or carpenter? Register to get service requests from people near you. This is a college project demo: we do not ask for a phone number or address. Your details stay in this browser only.</p>
+
+  <form id="provForm" novalidate>
+    <div class="card">
+      <label class="f" for="name" style="margin-top:0">Your name or shop name</label>
+      <input type="text" id="name" maxlength="60" autocomplete="off">
+
+      <div class="grid2">
+        <div>
+          <label class="f" for="category">Service you provide</label>
+          <select id="category">
+            <option value="">Choose one</option>
+            <option value="plumbing">Plumbing</option>
+            <option value="electrical">Electrical</option>
+            <option value="vehicle">Vehicle repair</option>
+            <option value="electronics">Electronics / appliance</option>
+            <option value="cleaning">Cleaning</option>
+            <option value="carpentry">Carpentry</option>
+            <option value="home">Home repair (general)</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div>
+          <label class="f" for="area">Area where you work</label>
+          <input type="text" id="area" maxlength="60" placeholder="e.g. Bapunagar, Ahmedabad" autocomplete="off">
+        </div>
+      </div>
+
+      <div class="grid2">
+        <div>
+          <label class="f" for="experience">Years of experience</label>
+          <input type="number" id="experience" min="0" max="50" inputmode="numeric">
+        </div>
+        <div></div>
+      </div>
+
+      <div class="grid2">
+        <div>
+          <label class="f" for="pmin">Lowest usual charge per visit (₹)</label>
+          <input type="number" id="pmin" min="50" max="20000" inputmode="numeric">
+        </div>
+        <div>
+          <label class="f" for="pmax">Highest usual charge per visit (₹)</label>
+          <input type="number" id="pmax" min="50" max="20000" inputmode="numeric">
+        </div>
+      </div>
+
+      <label class="f" for="about">About your work (optional, max 200 letters)</label>
+      <textarea id="about" maxlength="200" style="min-height:70px"></textarea>
+
+      <label class="opt" style="margin-top:12px"><input type="checkbox" id="consent"> I agree that these details can be shown to users in this demo after review.</label>
+    </div>
+    <button class="btn full" type="submit">Register</button>
+  </form>
+
+  <p class="form-error" id="provError" role="alert" hidden></p>
+  <div class="success-msg" id="provDone" role="status" hidden>Thank you! Your details are saved in this demo. You now appear in the provider list as a New provider. (In the full version, an admin reviews every signup first.)</div>
+</section>
+
+  </main>
+  <script src="static/js/local-api.js"></script>
+  <script src="static/js/provider-static.js"></script>
+</body>
+</html>

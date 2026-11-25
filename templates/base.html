@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}LocalHelp AI{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Noto+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <header class="top">
+    <div class="wrap bar">
+      <a class="logo" href="/" aria-label="LocalHelp AI home">
+        <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M12 22s8-6.5 8-12.5A8 8 0 0 0 4 9.5C4 15.5 12 22 12 22z" fill="currentColor"/><path d="M8.5 10l2.5 2.5L16 7.5" fill="none" stroke="#ffc300" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>LocalHelp <b>AI</b></span>
+      </a>
+      <nav class="nav" aria-label="Main">
+        <a href="/">Home</a>
+        <a href="/provider">For Professionals</a>
+      </nav>
+      {% block headerright %}{% endblock %}
+    </div>
+  </header>
+  <main class="wrap">
+    {% block content %}{% endblock %}
+  </main>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

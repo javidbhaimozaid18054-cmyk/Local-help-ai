@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Review Providers | LocalHelp AI{% endblock %}
+{% block content %}
+<section class="page" style="max-width:900px">
+  <h1>Review Provider Signups</h1>
+  <p class="lead">Only you can open this page (it works on your own computer). Approve a signup to show that provider to customers. Check the details yourself before approving, for example by calling the provider.</p>
+  <p class="form-error" id="admError" role="alert" hidden></p>
+  <div class="card tbl-wrap">
+    <table class="tbl">
+      <thead><tr><th>Name</th><th>Service</th><th>Area</th><th>Exp.</th><th>Charge (₹)</th><th>Status</th><th>Action</th></tr></thead>
+      <tbody id="rows"><tr><td colspan="7">Loading…</td></tr></tbody>
+    </table>
+  </div>
+</section>
+{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='js/admin.js') }}"></script>{% endblock %}

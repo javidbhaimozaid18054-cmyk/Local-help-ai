@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Usability Questionnaire | LocalHelp AI{% endblock %}
+{% block content %}
+<section class="page">
+  <h1>Usability Questionnaire</h1>
+  <p class="lead">Think about the prototype you just used. For each statement, choose how much you agree. There are no right or wrong answers.</p>
+  <form id="susForm" novalidate>
+    <fieldset class="q">
+      <label class="f" for="code" style="margin-top:0">Participant code (ask the observer, for example P01)</label>
+      <input type="text" id="code" maxlength="20" autocomplete="off">
+    </fieldset>
+    <div id="items"></div>
+    <fieldset class="q">
+      <label class="f" for="comment" style="margin-top:0">Any other comment? (optional)</label>
+      <textarea id="comment" maxlength="300"></textarea>
+    </fieldset>
+    <button class="btn full" type="submit">Submit</button>
+  </form>
+  <p class="form-error" id="susError" role="alert" hidden></p>
+  <div class="success-msg" id="susDone" role="status" hidden>Thank you for your feedback!</div>
+</section>
+{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='js/sus.js') }}"></script>{% endblock %}

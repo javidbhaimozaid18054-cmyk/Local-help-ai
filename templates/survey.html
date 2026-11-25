@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Survey | LocalHelp AI{% endblock %}
+{% block content %}
+<section class="page">
+  <h1>Quick Survey</h1>
+  <p class="lead" id="consent">Loading…</p>
+  <form id="surveyForm" novalidate></form>
+  <p class="form-error" id="surveyError" role="alert" hidden></p>
+  <div class="success-msg" id="surveyDone" role="status" hidden>Thank you! Your response has been saved.</div>
+</section>
+{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='js/survey.js') }}"></script>{% endblock %}

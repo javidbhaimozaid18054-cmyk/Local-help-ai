@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block title %}Test Panel | LocalHelp AI{% endblock %}
+{% block content %}
+<section class="page">
+  <h1>Usability Test Panel</h1>
+  <p class="lead">For the observer. Each participant tries the task twice: once with their current method (for example Google, WhatsApp or phone calls) and once with the prototype. Alternate which one goes first for every other participant.</p>
+
+  <div class="card">
+    <h2>1. Participant and task</h2>
+    <div class="grid2">
+      <div>
+        <label class="f" for="code">Participant code (no names)</label>
+        <input type="text" id="code" maxlength="20" placeholder="P01" autocomplete="off">
+      </div>
+      <div>
+        <label class="f" for="order">Which method goes first?</label>
+        <select id="order">
+          <option value="1">Current method first, prototype second</option>
+          <option value="2">Prototype first, current method second</option>
+        </select>
+      </div>
+    </div>
+    <label class="f" for="scenario">Task scenario (read it aloud to the participant)</label>
+    <select id="scenario">
+      <option>Your bathroom tap is leaking. Find a plumber and agree on a visit time.</option>
+      <option>Your room fan has stopped working. Find an electrician and agree on a visit time.</option>
+      <option>Your bike will not start. Find a mechanic and agree on a visit time.</option>
+    </select>
+    <p class="meta">Use a different scenario for the two methods only if both are equally difficult. Best practice: use the same scenario type for both.</p>
+  </div>
+
+  <div class="card">
+    <h2>2. Current method trial (stopwatch)</h2>
+    <p class="meta">Start the stopwatch when you say "go". Stop it when the participant has found a provider and agreed a visit time.</p>
+    <div class="stopwatch" id="sw" role="timer">0:00.0</div>
+    <div class="btnrow">
+      <button type="button" class="btn" id="swStart">Start</button>
+      <button type="button" class="btn ghost" id="swStop" disabled>Stop</button>
+      <button type="button" class="btn ghost" id="swReset">Reset</button>
+    </div>
+    <div class="grid2">
+      <div>
+        <label class="f" for="cSuccess">Did the participant succeed?</label>
+        <select id="cSuccess"><option value="1">Yes</option><option value="0">No (gave up or failed)</option></select>
+      </div>
+      <div>
+        <label class="f" for="cErrors">Errors (wrong turns, calls that did not connect)</label>
+        <input type="number" id="cErrors" min="0" max="50" value="0">
+      </div>
+    </div>
+    <div style="height:10px"></div>
+    <button type="button" class="btn full" id="saveCurrent">Save current method trial</button>
+    <p class="form-error" id="curError" role="alert" hidden></p>
+    <p class="success-msg" id="curOk" role="status" hidden>Saved.</p>
+  </div>
+
+  <div class="card">
+    <h2>3. Prototype trial (timed automatically)</h2>
+    <p class="meta">This opens the prototype in a new tab with a task bar. The tester presses Start task, completes the booking, and the time, clicks and errors are recorded. After that they fill the usability questionnaire.</p>
+    <a class="btn full" id="protoLink" href="/" target="_blank" rel="noopener">Open prototype for this participant</a>
+    <div style="height:8px"></div>
+    <a class="btn ghost full" id="susLink" href="/sus" target="_blank" rel="noopener">Open usability questionnaire (SUS)</a>
+  </div>
+
+  <div class="card">
+    <h2>4. Progress</h2>
+    <div class="kpis" id="kpis"></div>
+    <p class="meta">Brief minimum: 30 survey responses and 10 testers. Counts update when you reload this page.</p>
+  </div>
+</section>
+{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='js/test.js') }}"></script>{% endblock %}
